@@ -1,0 +1,60 @@
+<!doctype html>
+<html ng-app="customersApp">
+<head>
+    <title>Customers/Orders App</title></title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+    <header>
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#/customers">Customers</a></li>
+                    <li class="nav-item"><a href="#/orders">Orders</a></li>
+                </ul>
+            </div>
+        </nav> -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#/customers">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#/customers">Customers</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#/orders">Orders</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+    
+    <main>
+        <hello-world></hello-world>
+        <div ng-view class="slide-animation"></div>
+    </main>
+    
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="scripts/angular-animate.js"></script>
+     <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/customersController.js"></script>
+    <script src="app/controllers/ordersController.js"></script>
+    <script src="app/controllers/allOrdersController.js"></script>
+    <script src="app/services/customersFactory.js"></script>
+    <script src="app/services/values.js"></script>
+    <!-- Custom Directive -->
+    <script src="app/services/helloWorldDirective.js"></script>
+</body>
+</html>

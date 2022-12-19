@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Directives</title>
+    <script src="../scripts/angular.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Directives -->
+    <div ng-init="name='Michael'">
+        <div ng-hide="isHidden">
+            Name: <input type="text" ng-model="name" style="background-color: {{name}}"> {{name}}
+        </div>
+        Hide: <input type="checkbox" ng-model="isHidden">
+        <br> <br>
+        <button ng-click="name='Tommy'">Change Name</button>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!-- Repeating -->
+    <div ng-init="namesList=['Michael', 'Jordon', 'Calpol', 'Sangakara']">
+        <h3>Iterating through data using ng-repeat</h3>
+        <ul>
+            <li ng-repeat="name in namesList"> {{name}} </li>
+        </ul>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!-- Filtering and Formatting -->
+    <div
+        ng-init="customers=[
+        {joined: '2000-12-02', name:'John', city:'Chandler', orderTotal: 9.9956}, 
+        {joined: '1965-01-25',name:'Zed', city:'Las Vegas', orderTotal: 19.99},
+        {joined: '1944-06-15',name:'Tina', city:'New York', orderTotal:44.99}, 
+        {joined: '1995-03-28',name:'Dave', city:'Seattle', orderTotal:101.50}
+        ]">
+        <h2>Customers</h2>
+        Filter: <input type="text" ng-model="customerFilter.name"/>
+        <br /><br />
+        <table>
+            <tr>
+                <th ng-click="sortBy='name'; reverse=!reverse">Name</th>
+                <th ng-click="sortBy='city'; reverse=!reverse">City</th>
+                <th ng-click="sortBy='orderTotal'; reverse=!reverse">Order Total</th>
+                <th ng-click="sortBy='joined'; reverse=!reverse">Joined</th>
+            </tr>
+            <tr ng-repeat="cust in customers | filter:customerFilter | limitTo: 4 | orderBy: sortBy: reverse ">
+                <td>{{ cust.name | uppercase}}</td>
+                <td>{{ cust.city }}</td>
+                <td>{{ cust.orderTotal | currency:'Rs ' }}</td>
+                <td>{{ cust.joined | date }}</td>
+            </tr>
+        </table>
+    </div>
+
+
+</body>
+
+</html>

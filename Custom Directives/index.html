@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="customersApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Directives</title>
+</head>
+
+<body>
+
+    <div ng-controller="CustomersController">
+    <!-- Shared Scope -->
+    <h2>Shared Scope Directive</h2>
+    <shared-scope></shared-scope>
+
+    <!-- Isolated Scope -->
+    <h2>Isolate Scope Directive</h2>
+    <isolate-scope></isolate-scope>
+
+    <!-- Isolated Scope With String Directive -->
+    <h2>Isolate Scope With String Directive</h2>
+    <isolate-scope-with-string name = "{{ customer.name }}"></isolate-scope-with-string>
+
+    <!-- Isolated Scope With Object Directive -->
+    <h2>Isolate Scope With Object Directive</h2>
+    <isolate-scope-with-object datasource="customer"></isolate-scope-with-object>
+
+    <!-- Isolated Scope With Event Directive -->
+    <h2>Isolate Scope With Event Directive</h2>
+    <isolate-scope-with-event datasource="customer" action="changeData()"></isolate-scope-with-event>
+
+    <!-- link() Function demo -->
+    <h2>Link Function Demo</h2>
+    <div link-demo>Click Me!</div>
+
+    </div>
+
+    <!-- Inject the view -->
+    <div ng-view></div>
+
+    <!-- Another process to inject the view -->
+    <!-- <ng-view></ng-view> -->
+
+    <script src="../scripts/angular.js"></script>
+    <script src="../scripts/angular-route.js"></script>
+    <script src="routes.js"></script>
+    <script src="customerController.js"></script>
+    <script src="sharedScopeDirective.js"></script>
+    <script src="isolateScopeDirective.js"></script>  
+    <script src="isolateLocalScopeDirective.js"></script>
+</body>
+
+</html>
