@@ -41,6 +41,26 @@
                 <h1>Hello world!</h1>
                 <h2> {{ firstname }} </h2>
 
+                <label>
+                    <input type="text" placeholder="Your Twitter handle" ng-model="handle">
+                </label>
+
+                <div class="alert" ng-class="{ 'alert-warning': handle.length < characters, 'alert-danger': hab=handle.length > characters }" ng-show="handle.length !== characters">
+                    <div ng-show="handle.length < characters"><p>It is less than 5 characters</p></div>
+                    <div ng-show="handle.length > characters"><p>It is More than 5 characters</p></div>
+<!--                    <div ng-show="showWhenMoreThan5Characters === false"><p>It is less than 5 characters</p></div>-->
+<!--                    <div ng-show="showWhenMoreThan5Characters === true"><p>It is more than 5 characters</p></div>-->
+                </div>
+
+                <hr>
+                <h2>twitter.com/{{ lowerCaseHandle() }}</h2>
+
+                <!--  Custom Rules -->
+                <h3>Rules</h3>
+                <ul>
+                    <li ng-repeat="rule in rules"> {{ rule.ruleName }} </li>
+                </ul>
+
             </div>
 
 		</div>
