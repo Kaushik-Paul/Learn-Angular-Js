@@ -1,24 +1,31 @@
 let myApp = angular.module("mySecondApp", ["ngRoute"]);
 
-// (function () {
-//     let mainController = function ($scope, $log) {
-//         $scope.firstname = "John Doe";
-//         console.log($scope);
-//         $log.log("Hello World Log !!");
-//         $log.info("Hello World Info !!");
-//         $log.debug("Hello World Debug !!");
-//         $log.warn("Hello World Warn !!");
-//         $log.error("Hello World Error !!");
-//     };
-//     myApp.controller("mainController", mainController);
-// }());
+(function () {
+    let myRouterConfig = function ($routeProvider) {
+        $routeProvider
+            .when("/", {
+                templateUrl: "pages/main.html",
+                controller: "mainController",
+            })
+            .when("/second/:num", {
+                templateUrl: "pages/second.html",
+                controller: "secondController",
+            })
+    }
 
+    myApp.config(myRouterConfig);
+}());
 
-// OR
-// To save against minifier
 (function () {
     let mainController = function ($scope, $log) {
 
     };
     myApp.controller("mainController", ["$scope", "$log", mainController]);
+}());
+
+(function () {
+    let secondController = function ($scope, $log, $routeParams) {
+        $scope.num = $routeParams.num;
+    };
+    myApp.controller("secondController", ["$scope", "$log", "$routeParams", secondController]);
 }());
