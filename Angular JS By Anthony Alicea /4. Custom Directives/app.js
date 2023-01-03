@@ -1,30 +1,29 @@
 let myApp = angular.module("mySecondApp", []);
 
-// Custom Service
 (function () {
-    let nameService = function () {
-        let self = this;
-        this.name = "Tony Stark";
-        this.nameLength = function () {
-            return self.name.length;
-        }
-    };
-    myApp.service("nameService", nameService);
-}());
-
-
-
-(function () {
-    let mainController = function ($scope, $log, nameService) {
+    let mainController = function ($scope, $log) {
         $scope.firstName = "John Doe";
-        $scope.newName = nameService.name;
-        $scope.nameLength = nameService.nameLength();
-
-        // Change the value of service everytime name changes
-        $scope.$watch("newName", function () {
-            nameService.name = $scope.newName;
-            $log.log(`Service Name Updated: ${nameService.name}`);
-        });
     };
-    myApp.controller("mainController", ["$scope", "$log", "nameService", mainController]);
+    myApp.controller("mainController", ["$scope", "$log", mainController]);
 }());
+
+// Create custom directive
+(function () {
+    let searchResult = function () {
+        return {
+            restrict: "EACM", // Directives allowed E => Element, A => Attribute, C => Class, M => Comment
+            // template: '<a href="#" class="list-group-item">\n' +
+            //     '                        <h4 class="list-group-item-heading">Doe, John</h4>\n' +
+            //     '                        <p class="list-group-item-text">\n' +
+            //     '                            555 Main St., New York, NY 11111\n' +
+            //     '                        </p>\n' +
+            //     '                    </a>',
+            templateUrl: "directives/search-result.html",
+            replace: true // Replaces the html tag completely
+
+        };
+    };
+    myApp.directive("searchResult", searchResult);
+
+}());
+

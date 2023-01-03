@@ -35,10 +35,18 @@
 
 			<div ng-controller="mainController">
                 <h1>{{ firstName }}</h1>
-                <h3>From Name Service ==>>> Name is: {{ newName }} and the length is {{ nameLength }}</h3>
-                <input type="text" ng-model="newName">
-            </div>
+                <label>Search
+                    <input type="text" value="Doe">
+                </label>
 
+                <h3>Search Results</h3>
+                <div class="list-group">
+                    <search-result></search-result>  <!--  Element Directive -->
+                    <div search-result></div>  <!--  Attribute Directive -->
+                    <div class="search-result"></div> <!--  Class Directive -->
+                    <!-- directive: search-result  -->  <!--  Comment Directive -->
+                </div>
+            </div>
 		</div>
 
     </body>
