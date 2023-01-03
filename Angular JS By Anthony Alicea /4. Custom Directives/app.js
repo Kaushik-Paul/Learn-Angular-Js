@@ -5,6 +5,13 @@ let myApp = angular.module("mySecondApp", []);
         $scope.person = {
             firstName: "John Doe",
             address: "555 Main St., New York, NY 11111",
+            street: "555 Main St.",
+            city: "New York",
+            zip: "11111"
+        };
+
+        $scope.formattedAddress = function (person) {
+            return `${person.street}, ${person.city}, ${person.zip} Hello`
         };
     };
     myApp.controller("mainController", ["$scope", "$log", mainController]);
@@ -25,7 +32,9 @@ let myApp = angular.module("mySecondApp", []);
             replace: true, // Replaces the html tag completely
             scope: {      // Scope to get access to parent page
                 personName: "@",
-                personAddress: "@"
+                personAddress: "@",
+                personObject: "=",
+                formattedAddressFunction: "&"
             }
 
         };
