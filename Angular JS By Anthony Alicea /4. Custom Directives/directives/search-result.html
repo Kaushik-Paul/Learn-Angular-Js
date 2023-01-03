@@ -2,7 +2,9 @@
 <!--  <h4 class="list-group-item-heading">{{ personName }}</h4>-->
   <h4 class="list-group-item-heading">{{ personName }}</h4>
   <p class="list-group-item-text">
-    {{ personObject.address }}
-    {{ formattedAddressFunction({address: personObject})  }}
+    {{ personAddress }}
+<!--    {{ personObject.address }}-->
+<!--    {{ formattedAddressFunction({address: personObject})  }}-->
   </p>
+  <small><ng-transclude></ng-transclude></small>
 </a>

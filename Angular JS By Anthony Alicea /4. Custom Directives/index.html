@@ -41,7 +41,9 @@
 
                 <h3>Search Results</h3>
                 <div class="list-group">
-                    <search-result person-name="{{ person.firstName }}" person-address="{{ person.address }}" formatted-address-function="formattedAddress(address)"></search-result>  <!--  Element Directive -->
+                    <search-result person-name="{{ person.firstName }}" person-address="{{ person.address }}" formatted-address-function="formattedAddress(address)">
+                        *search result may not be valid
+                    </search-result>  <!--  Element Directive -->
                     <div search-result person-object="person"></div>  <!--  Attribute Directive -->
                     <div class="search-result"></div> <!--  Class Directive -->
                     <!-- directive: search-result  -->  <!--  Comment Directive -->
