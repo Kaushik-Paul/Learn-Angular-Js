@@ -2,7 +2,10 @@ let myApp = angular.module("mySecondApp", []);
 
 (function () {
     let mainController = function ($scope, $log) {
-        $scope.firstName = "John Doe";
+        $scope.person = {
+            firstName: "John Doe",
+            address: "555 Main St., New York, NY 11111",
+        };
     };
     myApp.controller("mainController", ["$scope", "$log", mainController]);
 }());
@@ -19,7 +22,11 @@ let myApp = angular.module("mySecondApp", []);
             //     '                        </p>\n' +
             //     '                    </a>',
             templateUrl: "directives/search-result.html",
-            replace: true // Replaces the html tag completely
+            replace: true, // Replaces the html tag completely
+            scope: {      // Scope to get access to parent page
+                personName: "@",
+                personAddress: "@"
+            }
 
         };
     };
