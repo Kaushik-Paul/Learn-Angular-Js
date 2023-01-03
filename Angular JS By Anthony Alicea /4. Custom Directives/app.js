@@ -33,9 +33,45 @@ let myApp = angular.module("mySecondApp", []);
             scope: {      // Scope to get access to parent page
                 personName: "@",
                 personAddress: "@",
-                personObject: "=",
-                formattedAddressFunction: "&"
-            }
+                // personObject: "=",
+                // formattedAddressFunction: "&"
+            },
+            // Compile
+            // compile: function (elem, attrs) {
+            //     console.log("Compiling !!!");
+            //     // elem.removeAttr("class");
+            //     console.log(elem.html());
+            //
+            //     return {
+            //         pre: function (scope, elements, attribute) {
+            //             console.log("Pre-linking...");
+            //             console.log(elements);
+            //         },
+            //
+            //         post: function (scope, elements, attributes) {
+            //             console.log("Post Linking");
+            //             console.log(scope);
+            //
+            //             if (scope.personName === "John Doe") {
+            //                 // elements.removeAttr("class");
+            //             }
+            //
+            //             console.log(elements);
+            //         }
+            //     }
+            // },
+            // Link
+            link: function (scope, elements, attributes) {
+                console.log("Linking");
+                console.log(scope);
+
+                if (scope.personName === "John Doe") {
+                    // elements.removeAttr("class");
+                }
+
+                console.log(elements);
+            },
+            transclude: true
 
         };
     };
