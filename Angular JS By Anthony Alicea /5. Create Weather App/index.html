@@ -7,12 +7,6 @@
 
         <!-- load bootstrap and fontawesome via CDN -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
-        <style>
-            html, body, input, select, textarea
-            {
-                font-size: 1.05em !important;
-            }
-        </style>
         
         <!-- load angular via CDN -->
         <script src="../scripts/angular.js"></script>
@@ -28,17 +22,16 @@
 				<div class="navbar-header">
 					<a class="navbar-brand" href="/">AngularJS Weather</a>
 				</div>
-
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="index.html#!/forecast"><i class="fa fa-home"></i> ForeCast</a></li>
 				</ul>
 			</div>
 			</nav>
 		</header>
 
-        <div class="container" ng-controller="mainController">
-            <h2>{{ name }}</h2>
-
+        <div class="container">
+            <div ng-view></div>
 		</div>
 
     </body>
