@@ -4,15 +4,15 @@ Days: <a href="index.html#!/forecast/2" ng-class="{ 'bg-primary': days === '2' }
 </a> | <a href="index.html#!/forecast/7" ng-class="{ 'bg-primary': days === '7' }">7</a>
 <hr>
 
-<div ng-repeat="weather in weatherResult.list">
+<div>
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{ convertDate(weather.dt) | date : 'MMM d, y' }}</h3>
+                    <h3 class="panel-title">{{ convertDate(weatherResult.dt) | date : 'MMM d, y' }}</h3>
                 </div>
                 <div class="panel-body">
-                    Daytime Temperature: {{ convertFahrenheitToCelsius(weather.temp.day) }}F
+                    Daytime Temperature: {{ convertFahrenheitToCelsius(weatherResult.main.temp) }}&#8451
                 </div>
             </div>
         </div>
