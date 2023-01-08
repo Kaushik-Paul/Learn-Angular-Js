@@ -3,21 +3,22 @@
    "version": "0.0.1",
    "description": "My Project",
    "dependencies": {
-        "express": "*"
-    },
+      "express": "*",
+      "nodemon": "^2.0.20"
+   },
    "engine": "node >=0.6.x",
    "scripts": {
-         "start": "node server.js"
-    },
+      "start": "nodemon server.js"
+   },
    "main": "server.js",
    "repository": {
-        "type": "git",
-        "url": ""
-    },
+      "type": "git",
+      "url": ""
+   },
    "author": "weatherApp",
    "license": "weatherApp",
    "bugs": {
-        "url": ""
-    },
+      "url": ""
+   },
    "homepage": "/"
 }
